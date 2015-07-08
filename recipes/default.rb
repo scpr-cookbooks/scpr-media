@@ -108,4 +108,4 @@ end
 
 # -- Set up an FTP server -- #
 
-include_recipe "scpr_ftp"
+include_recipe "scpr-ftp"
