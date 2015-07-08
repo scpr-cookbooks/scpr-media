@@ -16,3 +16,8 @@ include_attribute "nginx_passenger"
 default["nginx_passenger"]["sites_dir"] = "/etc/nginx/sites"
 default["nginx_passenger"]["log_dir"]   = "/scpr/log"
 
+#----------
+
+include_attribute "scpr-ftp"
+
+default["scpr_ftp"]["item"] = "media"

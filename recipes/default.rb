@@ -105,3 +105,7 @@ nginx_passenger_site "media" do
   server    node.scpr_media.server
   template  "media.site.conf.erb"
 end
+
+# -- Set up an FTP server -- #
+
+include_recipe "scpr_ftp"
