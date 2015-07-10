@@ -1,10 +1,12 @@
 {
   "audio_dir": "/scpr/media/media/audio",
   "redirect_url": "<%= @config["redirect_url"].to_s %>",
-  "prefix": "/(?:audio|podcasts)",
+  "prefixes": {
+    "/audio": { "preroll_key": "ondemand" },
+    "/podcasts": { "preroll_key": "podcast" }
+  },
   <% if @config["preroll_enabled"] %>
   "preroll": {
-    "key": "<%= @config["preroll"]["key"] %>",
     "path": "<%= @config["preroll"]["path"] %>",
     "server": "<%= @config["preroll"]["server"] %>"
   },
