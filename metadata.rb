@@ -4,7 +4,7 @@ maintainer_email 'erichardson@scpr.org'
 license          'apache2'
 description      'Installs/Configures scpr-media'
 long_description 'Installs/Configures scpr-media'
-version          '0.1.1'
+version          '0.1.2'
 
 depends "nfs"
 depends "nginx_passenger"

@@ -94,9 +94,11 @@ include_recipe "nginx_passenger"
 
 # -- Set up media vhost -- #
 
-# write our logging format
-cookbook_file "/etc/nginx/conf.d/combined_timing_range.conf" do
-  action :create
+# write our logging format and passenger buffer
+["combined_timing_range","passenger_buffer"].each do |f|
+  cookbook_file "/etc/nginx/conf.d/#{f}.conf" do
+    action :create
+  end
 end
 
 nginx_passenger_site "media" do

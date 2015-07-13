@@ -1,0 +1,10 @@
+{
+  "id":"media",
+  "users":{
+    "testing": {
+      "password": "$1$YqUCnDST$BJLDNFosn9G7GyJHWHwaL0",
+      "_password": "testing",
+      "home_dir": "/scpr/media/media"
+    }
+  }
+}

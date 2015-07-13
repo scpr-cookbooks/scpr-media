@@ -11,7 +11,9 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[apt]
       - recipe[scpr-media::default]
+    data_bags_path: "./test/data_bags"
     attributes:
       scpr_tools:
         media_nfs_ip: 10.100.0.12
