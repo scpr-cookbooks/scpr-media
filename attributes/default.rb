@@ -1,6 +1,6 @@
 default["scpr_media"]["server"] = "media.scpr.org"
 
-default["scpr_media"]["podroller"]["version"] = "0.6.0"
+default["scpr_media"]["podroller"]["version"] = "0.6.1"
 
 default["scpr_media"]["podroller"]["config"]["redirect_url"]      = "http://#{node.scpr_media.server}"
 default["scpr_media"]["podroller"]["config"]["preroll_enabled"]   = true
