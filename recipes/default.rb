@@ -43,7 +43,7 @@ end
 
 scpr_tools_media_mount "/scpr/media/media" do
   action        :create
-  remote_path   "/volume1/media"
+  remote_path   node.scpr_media.nfs_mount
 end
 
 # -- Install Podroller -- #
