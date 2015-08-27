@@ -122,3 +122,13 @@ end
 # -- Set up an FTP server -- #
 
 include_recipe "scpr-ftp"
+
+# -- Set up logstash forwarder -- #
+
+log_forward "media" do
+  paths ["#{node.nginx_passenger.log_dir}/media.access.log"]
+  fields({
+    type:         "nginx",
+    nginx_host:   "media.scpr.org",
+  })
+end
