@@ -88,6 +88,17 @@ template "/scpr/media/app.js" do
   notifies  :touch, "file[podroller-restart]"
 end
 
+include_recipe "lifeguard"
+
+lifeguard_service "Podroller" do
+  action      [:enable,:start]
+  service     "podroller"
+  user        "media"
+  dir         "/scpr/media"
+  monitor_dir "/scpr/media"
+  command     "node app.js"
+end
+
 # -- Install NGINX -- #
 
 include_recipe "nginx_passenger"

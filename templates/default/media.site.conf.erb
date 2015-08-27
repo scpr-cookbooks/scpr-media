@@ -5,9 +5,8 @@ server {
   access_log <%= node.nginx_passenger.log_dir %>/<%= @resource.name %>.access.log combined_timing_range;
   error_log <%= node.nginx_passenger.log_dir %>/<%= @resource.name %>.error.log;
 
-  location ~ ^/(?:audio|podcasts) {
-    passenger_enabled on;
-    root <%= @resource.dir %>/public;
+  location ~ ^/(?:audio|podcasts).*\.mp3 {
+    proxy_pass http://localhost:8000;
   }
 
   location / {
