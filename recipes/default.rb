@@ -103,6 +103,37 @@ end
 
 include_recipe "nginx_passenger"
 
+# -- Install consul-template and our ban list -- #
+
+include_recipe "scpr-consul"
+include_recipe "consul-template"
+
+# create an empty file first, so nginx doesn't complain that it's missing
+file "/etc/nginx/media_banned_ips.cfg" do
+  action    :create_if_missing
+  content   "# Should be replaced via consul-template\n"
+end
+
+template "/etc/nginx/media_banned_ips.consul" do
+  action    :create
+  variables({
+    consul_key: node.scpr_media.consul_key,
+  })
+  notifies  :reload, "service[consul-template]"
+end
+
+consul_template_config "haproxy" do
+  action :create
+  templates([
+    {
+      source:       "/etc/nginx/media_banned_ips.consul",
+      destination:  "/etc/nginx/media_banned_ips.cfg",
+      command:      "service nginx reload",
+    }
+  ])
+  notifies :reload, "service[nginx]"
+end
+
 # -- Set up media vhost -- #
 
 # write our logging format and passenger buffer

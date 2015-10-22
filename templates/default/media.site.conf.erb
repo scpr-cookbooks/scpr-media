@@ -5,6 +5,8 @@ server {
   access_log <%= node.nginx_passenger.log_dir %>/<%= @resource.name %>.access.log combined_timing_range;
   error_log <%= node.nginx_passenger.log_dir %>/<%= @resource.name %>.error.log;
 
+  include /etc/nginx/media_banned_ips.cfg;
+
   location ~ ^/(?:audio|podcasts).*\.mp3 {
     proxy_pass http://localhost:8000;
   }
