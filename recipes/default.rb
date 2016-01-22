@@ -163,3 +163,13 @@ log_forward "media" do
     nginx_host:   "media.scpr.org",
   })
 end
+
+# -- Set up log rotation -- #
+
+logrotate_app "media" do
+  cookbook  "logrotate"
+  path      ["#{node.nginx_passenger.log_dir}/media.*.log"]
+  size      200*1024*1024
+  rotate    6
+  options   ["missingok","compress","copytruncate"]
+end
