@@ -3,7 +3,7 @@ default["scpr_media"]["nfs_mount"] = "/volume1/media"
 
 default["scpr_media"]["consul_key"] = "media_prod"
 
-default["scpr_media"]["podroller"]["version"] = "0.6.1"
+default["scpr_media"]["podroller"]["version"] = "0.6.7"
 
 default["scpr_media"]["podroller"]["config"]["redirect_url"]      = "http://#{node.scpr_media.server}"
 default["scpr_media"]["podroller"]["config"]["preroll_enabled"]   = true
