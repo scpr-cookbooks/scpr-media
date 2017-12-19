@@ -13,8 +13,8 @@
   },
   <% end %>
   "google_analytics": {
-     "property": "UA-624724-1",
-     "custom_dimension": "cd25"
+     "property": "<%= @config["google_analytics"]["property"] %>",
+     "custom_dimension": "<%= @config["google_analytics"]["custom_dimension"] %>"
   },
   "debug": false
 }
