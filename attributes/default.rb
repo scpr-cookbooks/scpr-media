@@ -10,6 +10,8 @@ default["scpr_media"]["podroller"]["config"]["preroll_enabled"]   = true
 
 default["scpr_media"]["podroller"]["config"]["preroll"]["path"]   = "/pre/p"
 default["scpr_media"]["podroller"]["config"]["preroll"]["server"] = "campaigns.scprdev.org"
+default["scpr_media"]["podroller"]["config"]["google_analytics"]["property"] = "UA-624724-1"
+default["scpr_media"]["podroller"]["config"]["google_analytics"]["custom_dimension"] = "cd25"
 
 #----------
 
